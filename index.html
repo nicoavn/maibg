@@ -5,105 +5,93 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
-	<head>
-		<title>Aerial by HTML5 UP</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
-		<div id="wrapper">
-			<div id="bg"></div>
-			<div id="overlay"></div>
-			<div id="main">
+<head>
+    <title>Ministerio de Adoración IBG</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="assets/css/main.css"/>
+    <noscript>
+        <link rel="stylesheet" href="assets/css/noscript.css"/>
+    </noscript>
+</head>
+<body class="is-preload">
+<div id="wrapper">
+    <div id="bg"></div>
+    <div id="overlay"></div>
+    <div id="main">
 
-				<!-- Header -->
-					<header id="header">
-						<h1>
-							 <img src="assets/css/images/MAIBG-Web-logo.png" style="max-width:100%;"></h1>
-						<!-- <p>Security Chief &nbsp;&bull;&nbsp; Cyborg &nbsp;&bull;&nbsp; Never asked for this</p>  -->
-						<nav>
-							<ul>
-								<li><a href="https://www.youtube.com/channel/UChjUH71EouT79z0Z9QsABKA?view_as=subscriber" class="icon fa-youtube"><span class="label">Twitter</span></a></li>
-								<li><a href="https://www.facebook.com/maibgrd/" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-								<li><a href="https://www.instagram.com/maibgrd/" class="icon fa-instagram"><span class="label">Instagram</span></a></li> 
-								<li><a href="https://www.spotify.com/do/" class="icon fa-spotify"><span class="label">church</span></a></li>
-								<li><a href="mailto:ministeriodeadoracionibg@gmail.com" class="icon fa-envelope-o"><span class="label">Mail</span></a>
+        <!-- Header -->
+        <header id="header">
+            <h1><img src="assets/css/images/MAIBG-Web-logo.png" style="max-width:100%;" /></h1>
+            <!-- <p>Security Chief &nbsp;&bull;&nbsp; Cyborg &nbsp;&bull;&nbsp; Never asked for this</p>  -->
+            <nav>
+                <ul>
+                    <li><a target="_blank"
+                           href="https://www.youtube.com/channel/UChjUH71EouT79z0Z9QsABKA?view_as=subscriber"
+                           class="icon fa-youtube"><span class="label">Twitter</span></a></li>
+                    <li><a target="_blank" href="https://www.facebook.com/maibgrd/" class="icon fa-facebook"><span
+                            class="label">Facebook</span></a></li>
+                    <li><a target="_blank" href="https://www.instagram.com/maibgrd/" class="icon fa-instagram"><span
+                            class="label">Instagram</span></a></li>
+                    <li><a target="_blank" href="https://www.spotify.com/do/" class="icon fa-spotify"><span
+                            class="label">church</span></a></li>
+                    <li><a target="_blank" href="mailto:ministeriodeadoracionibg@gmail.com"
+                           class="icon fa-envelope-o"><span class="label">Mail</span></a>
+                </ul>
+            </nav>
+            <!-- Countdown -->
+            <div class="container">
+                <h2 id="head">Concierto&nbsp;&nbsp;#YOVENCERÉ:</h2>
+                <ul>
+                    <li><span id="days"></span>days</li>
+                    <li><span id="hours"></span>Hours</li>
+                    <li><span id="minutes"></span>Minutes</li>
+                    <li><span id="seconds"></span>Seconds</li>
+                </ul>
+            </div>
+        </header>
 
-									 
-									
+        <!-- Footer -->
+        <footer id="footer">
+        </footer>
 
-
-
-									<i </i>
-								</li>
-
-							</ul>
-						</nav>
-
-
-  
-<!-- Countdown -->
-<div class="container">
-  <h2 id="head">Concierto&nbsp;&nbsp;#YOVENCERÉ:</h2>
-  <ul>
-    <li><span id="days"></span>days</li>
-    <li><span id="hours"></span>Hours</li>
-    <li><span id="minutes"></span>Minutes</li>
-    <li><span id="seconds"></span>Seconds</li>
-  </ul>
+    </div>
 </div>
+<script>
+    window.onload = function () {
+        document.body.classList.remove('is-preload');
+    }
+    window.ontouchmove = function () {
+        return false;
+    }
+    window.onorientationchange = function () {
+        document.body.scrollTop = 0;
+    }
 
 
+    /*Countdown */
+    const second = 1000,
+        minute = second * 60,
+        hour = minute * 60,
+        day = hour * 24;
 
-					</header>
+    let countDown = new Date('Dec 14, 2018 00:00:00').getTime(),
+        x = setInterval(function () {
 
-				<!-- Footer -->
-					<footer id="footer">
+            let now = new Date().getTime(),
+                distance = countDown - now;
 
-						
-						
-					</footer>
+            document.getElementById('days').innerText = Math.floor(distance / (day)),
+                document.getElementById('hours').innerText = Math.floor((distance % (day)) / (hour)),
+                document.getElementById('minutes').innerText = Math.floor((distance % (hour)) / (minute)),
+                document.getElementById('seconds').innerText = Math.floor((distance % (minute)) / second);
 
-			</div>
-		</div>
-		<script>
-			window.onload = function() { document.body.classList.remove('is-preload'); }
-			window.ontouchmove = function() { return false; }
-			window.onorientationchange = function() { document.body.scrollTop = 0; }
+            //do something later when date is reached
+            //if (distance < 0) {
+            //  clearInterval(x);
+            //}
 
-
-
-
-	/*Countdown */
-	  const second = 1000,
-      minute = second * 60,
-      hour = minute * 60,
-      day = hour * 24;
-
-	let countDown = new Date('Dec 14, 2018 00:00:00').getTime(),
-    x = setInterval(function() {
-
-      let now = new Date().getTime(),
-          distance = countDown - now;
-
-        document.getElementById('days').innerText = Math.floor(distance / (day)),
-        document.getElementById('hours').innerText = Math.floor((distance % (day)) / (hour)),
-        document.getElementById('minutes').innerText = Math.floor((distance % (hour)) / (minute)),
-        document.getElementById('seconds').innerText = Math.floor((distance % (minute)) / second);
-      
-      //do something later when date is reached
-      //if (distance < 0) {
-      //  clearInterval(x);
-      //}
-
-    }, second)
-
-
-
-
-
-		</script>
-	</body>
+        }, second)
+</script>
+</body>
 </html>
